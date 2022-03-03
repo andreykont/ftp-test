@@ -13,7 +13,8 @@ func main() {
 	var ftp *myftp.FTP
 
 	if ftp, err = myftp.ConnectFtp(FtpServer); err != nil {
-		panic(err)
+		fmt.Printf("Can't connect remote FTP server")
+		return
 	}
 	defer ftp.CloseFtp()
 	fmt.Println("Successfully connected to", FtpServer)
