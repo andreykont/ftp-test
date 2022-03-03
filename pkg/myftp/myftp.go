@@ -13,8 +13,7 @@ type FTP struct {
 	writer *bufio.Writer
 }
 
-// Connect to remote ftp server.
-func Connect(address string) (*FTP, error) {
+func ConnectFtp(address string) (*FTP, error) {
 	var err error
 	var conn net.Conn
 
@@ -29,7 +28,7 @@ func Connect(address string) (*FTP, error) {
 	return ftp, nil
 }
 
-// Close ftp connection
-func (ftp *FTP) Close() error {
+// lose ftp connection
+func (ftp *FTP) CloseFtp() error {
 	return ftp.conn.Close()
 }

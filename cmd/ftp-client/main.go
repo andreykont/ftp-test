@@ -6,18 +6,18 @@ import (
 	"github.com/andreykont/ftp-test/pkg/myftp"
 )
 
-const FtpServer = "localhost:21"
+const FtpServer string = "localhost:21"
 
 func main() {
 	var err error
 	var ftp *myftp.FTP
 
-	if ftp, err = myftp.Connect(FtpServer); err != nil {
+	if ftp, err = myftp.ConnectFtp(FtpServer); err != nil {
 		panic(err)
 	}
-	defer ftp.Close()
+	defer ftp.CloseFtp()
 	fmt.Println("Successfully connected to", FtpServer)
-	// authentication
+	// authentication here
 	// change dir
 	// get some file
 	// quit session
